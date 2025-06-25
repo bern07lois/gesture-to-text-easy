@@ -2,7 +2,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Hand, Heart, Play, Smartphone } from "lucide-react";
+import { Hand, Heart, Play, Smartphone, ArrowLeftRight } from "lucide-react";
 
 interface WelcomeScreenProps {
   onStartSession: () => void;
@@ -47,8 +47,8 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStartSession }) 
                 <span className="text-teal-600 font-semibold text-sm">1</span>
               </div>
               <div className="text-left">
-                <p className="font-medium text-gray-800">Position Your Hand</p>
-                <p className="text-sm text-gray-600">Show your hand clearly to the camera</p>
+                <p className="font-medium text-gray-800">Sign to Text</p>
+                <p className="text-sm text-gray-600">Show hand signs to camera for real-time translation</p>
               </div>
             </div>
             
@@ -57,18 +57,18 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStartSession }) 
                 <span className="text-teal-600 font-semibold text-sm">2</span>
               </div>
               <div className="text-left">
-                <p className="font-medium text-gray-800">Make a Sign</p>
-                <p className="text-sm text-gray-600">Form letters A-Z using sign language</p>
+                <p className="font-medium text-gray-800">Text to Sign</p>
+                <p className="text-sm text-gray-600">Type text to see sign language instructions</p>
               </div>
             </div>
             
             <div className="flex items-start space-x-3">
               <div className="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <span className="text-teal-600 font-semibold text-sm">3</span>
+                <ArrowLeftRight className="w-4 h-4 text-teal-600" />
               </div>
               <div className="text-left">
-                <p className="font-medium text-gray-800">Get Translation</p>
-                <p className="text-sm text-gray-600">See real-time text translation</p>
+                <p className="font-medium text-gray-800">Switch Modes</p>
+                <p className="text-sm text-gray-600">Toggle between both translation modes easily</p>
               </div>
             </div>
           </div>
@@ -78,10 +78,10 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStartSession }) 
         <div className="bg-gradient-to-r from-teal-500 to-teal-600 rounded-2xl p-6 text-white">
           <div className="flex items-center justify-center space-x-2 mb-3">
             <Smartphone className="w-6 h-6" />
-            <span className="font-semibold text-lg">Real-Time Communication</span>
+            <span className="font-semibold text-lg">Bidirectional Translation</span>
           </div>
           <p className="text-teal-100 text-sm">
-            Experience instant sign language to text translation using advanced AI technology
+            Complete communication solution supporting both sign-to-text and text-to-sign translation
           </p>
         </div>
       </div>
