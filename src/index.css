@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -37,20 +38,22 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Custom colors for sign language app */
+    --coral-50: 254 242 242;
+    --coral-100: 254 226 226;
+    --coral-200: 252 165 165;
+    --coral-300: 248 113 113;
+    --coral-400: 239 68 68;
+    --coral-500: 220 38 38;
+    --coral-600: 185 28 28;
   }
 
   .dark {
@@ -100,4 +103,23 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@layer utilities {
+  .bg-coral-50 { @apply bg-[hsl(var(--coral-50))]; }
+  .bg-coral-100 { @apply bg-[hsl(var(--coral-100))]; }
+  .bg-coral-200 { @apply bg-[hsl(var(--coral-200))]; }
+  .bg-coral-300 { @apply bg-[hsl(var(--coral-300))]; }
+  .bg-coral-400 { @apply bg-[hsl(var(--coral-400))]; }
+  .bg-coral-500 { @apply bg-[hsl(var(--coral-500))]; }
+  .bg-coral-600 { @apply bg-[hsl(var(--coral-600))]; }
+  
+  .from-coral-100 { --tw-gradient-from: hsl(var(--coral-100)) var(--tw-gradient-from-position); }
+  .from-coral-400 { --tw-gradient-from: hsl(var(--coral-400)) var(--tw-gradient-from-position); }
+  .from-coral-500 { --tw-gradient-from: hsl(var(--coral-500)) var(--tw-gradient-from-position); }
+  
+  .to-coral-500 { --tw-gradient-to: hsl(var(--coral-500)) var(--tw-gradient-to-position); }
+  
+  .hover\\:from-coral-500:hover { --tw-gradient-from: hsl(var(--coral-500)) var(--tw-gradient-from-position); }
+  .hover\\:to-pink-500:hover { --tw-gradient-to: hsl(330 81% 60%) var(--tw-gradient-to-position); }
 }
