@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Hand, Type, Play, RotateCcw } from "lucide-react";
-import { SignSymbolDisplay } from "./SignSymbolDisplay";
 
 interface TextToSignTranslatorProps {
   className?: string;
@@ -17,32 +16,32 @@ export const TextToSignTranslator: React.FC<TextToSignTranslatorProps> = ({ clas
 
   // Sign language descriptions for each letter
   const signDescriptions: { [key: string]: string } = {
-    'A': 'Make a fist with thumb on the side',
-    'B': 'Flat hand with fingers together, thumb across palm',
-    'C': 'Curved hand forming a C shape',
-    'D': 'Point index finger up, other fingers touching thumb',
-    'E': 'Bend all fingertips to touch thumb',
-    'F': 'Touch thumb and index finger, other fingers up',
-    'G': 'Point index finger and thumb horizontally',
-    'H': 'Extend index and middle fingers horizontally',
-    'I': 'Make fist with pinky finger up',
-    'J': 'Make I sign and draw J in the air',
-    'K': 'Index and middle fingers up in V, thumb between them',
-    'L': 'Make L shape with thumb and index finger',
-    'M': 'Thumb under three fingers',
-    'N': 'Thumb under two fingers',
-    'O': 'Form O shape with all fingers',
-    'P': 'Like K but pointing down',
-    'Q': 'Point thumb and index finger down',
-    'R': 'Cross index and middle fingers',
-    'S': 'Make fist with thumb over fingers',
-    'T': 'Thumb between index and middle finger',
-    'U': 'Index and middle fingers up together',
-    'V': 'Index and middle fingers apart in V',
-    'W': 'Index, middle, and ring fingers up',
-    'X': 'Hook index finger',
-    'Y': 'Thumb and pinky out, other fingers down',
-    'Z': 'Draw Z in the air with index finger'
+    'A': 'Make a fist with your thumb on the side of your index finger',
+    'B': 'Hold your hand flat with fingers together and straight up, thumb folded across your palm',
+    'C': 'Curve your hand into a C shape, like holding a small cup',
+    'D': 'Point your index finger straight up, touch your thumb to the tips of your other three fingers',
+    'E': 'Bend all your fingertips down to touch your thumb tip',
+    'F': 'Touch the tip of your thumb to the tip of your index finger, keep other three fingers straight up',
+    'G': 'Point your index finger and thumb out horizontally, like making a gun shape',
+    'H': 'Extend your index and middle fingers horizontally, side by side',
+    'I': 'Make a fist and stick your pinky finger straight up',
+    'J': 'Make the "I" sign, then draw the letter J in the air with your pinky',
+    'K': 'Hold up your index and middle fingers in a V shape, with your thumb touching the side of your middle finger',
+    'L': 'Make an L shape with your thumb and index finger, other fingers folded down',
+    'M': 'Make a fist with your thumb tucked under your first three fingers',
+    'N': 'Make a fist with your thumb tucked under your first two fingers',
+    'O': 'Form an O shape by touching all your fingertips to your thumb tip',
+    'P': 'Like the K sign, but point your fingers downward',
+    'Q': 'Point your thumb and index finger down, like an upside-down G',
+    'R': 'Cross your index finger over your middle finger, both pointing up',
+    'S': 'Make a fist with your thumb folded over your fingers',
+    'T': 'Make a fist with your thumb poking up between your index and middle finger',
+    'U': 'Hold your index and middle fingers straight up, side by side',
+    'V': 'Hold your index and middle fingers up in a V shape (peace sign)',
+    'W': 'Hold your index, middle, and ring fingers straight up',
+    'X': 'Make a fist and hook your index finger',
+    'Y': 'Stick out your thumb and pinky, fold down your other three fingers',
+    'Z': 'Use your index finger to draw the letter Z in the air'
   };
 
   const handlePlaySequence = () => {
@@ -62,10 +61,10 @@ export const TextToSignTranslator: React.FC<TextToSignTranslatorProps> = ({ clas
       
       setCurrentLetterIndex(index);
       
-      // Move to next letter after 2 seconds
+      // Move to next letter after 3 seconds (increased time for reading)
       setTimeout(() => {
         playNext(index + 1);
-      }, 2000);
+      }, 3000);
     };
     
     playNext(0);
@@ -119,18 +118,13 @@ export const TextToSignTranslator: React.FC<TextToSignTranslatorProps> = ({ clas
       <Card className="p-6 bg-gradient-to-br from-blue-50 to-teal-50 border-blue-100 min-h-[400px]">
         {currentLetter ? (
           <div className="text-center space-y-6">
-            {/* Visual Sign Symbol */}
-            <div className="flex justify-center mb-6">
-              <SignSymbolDisplay letter={currentLetter} />
-            </div>
-            
-            <div className="text-6xl font-bold text-teal-700 mb-4">
+            <div className="text-8xl font-bold text-teal-700 mb-6">
               {currentLetter}
             </div>
             
-            <div className="bg-white rounded-lg p-4 shadow-sm">
-              <p className="text-lg font-medium text-gray-800 mb-2">How to sign "{currentLetter}":</p>
-              <p className="text-gray-600">{signDescriptions[currentLetter]}</p>
+            <div className="bg-white rounded-lg p-6 shadow-sm">
+              <p className="text-xl font-medium text-gray-800 mb-3">How to sign "{currentLetter}":</p>
+              <p className="text-lg text-gray-700 leading-relaxed">{signDescriptions[currentLetter]}</p>
             </div>
             
             <div className="flex items-center justify-center space-x-2 text-sm text-teal-600">
@@ -153,7 +147,7 @@ export const TextToSignTranslator: React.FC<TextToSignTranslatorProps> = ({ clas
           <div className="text-center text-gray-500 flex flex-col items-center justify-center h-full">
             <Type className="w-16 h-16 mb-4 opacity-50" />
             <p className="text-lg">Enter text above to see sign language instructions</p>
-            <p className="text-sm mt-2">Currently supports A-Z letters with visual symbols</p>
+            <p className="text-sm mt-2">Learn American Sign Language alphabet with detailed hand descriptions</p>
           </div>
         )}
       </Card>
