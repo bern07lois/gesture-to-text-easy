@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Hand, Type, Play, RotateCcw } from "lucide-react";
+import { SignSymbolDisplay } from "./SignSymbolDisplay";
 
 interface TextToSignTranslatorProps {
   className?: string;
@@ -115,16 +116,23 @@ export const TextToSignTranslator: React.FC<TextToSignTranslatorProps> = ({ clas
       </div>
 
       {/* Display Section */}
-      <Card className="p-6 bg-gradient-to-br from-blue-50 to-teal-50 border-blue-100 min-h-[300px]">
+      <Card className="p-6 bg-gradient-to-br from-blue-50 to-teal-50 border-blue-100 min-h-[400px]">
         {currentLetter ? (
           <div className="text-center space-y-6">
+            {/* Visual Sign Symbol */}
+            <div className="flex justify-center mb-6">
+              <SignSymbolDisplay letter={currentLetter} />
+            </div>
+            
             <div className="text-6xl font-bold text-teal-700 mb-4">
               {currentLetter}
             </div>
+            
             <div className="bg-white rounded-lg p-4 shadow-sm">
               <p className="text-lg font-medium text-gray-800 mb-2">How to sign "{currentLetter}":</p>
               <p className="text-gray-600">{signDescriptions[currentLetter]}</p>
             </div>
+            
             <div className="flex items-center justify-center space-x-2 text-sm text-teal-600">
               <Hand className="w-4 h-4" />
               <span>Letter {currentLetterIndex + 1} of {filteredLetters.length}</span>
@@ -145,7 +153,7 @@ export const TextToSignTranslator: React.FC<TextToSignTranslatorProps> = ({ clas
           <div className="text-center text-gray-500 flex flex-col items-center justify-center h-full">
             <Type className="w-16 h-16 mb-4 opacity-50" />
             <p className="text-lg">Enter text above to see sign language instructions</p>
-            <p className="text-sm mt-2">Currently supports A-Z letters</p>
+            <p className="text-sm mt-2">Currently supports A-Z letters with visual symbols</p>
           </div>
         )}
       </Card>
